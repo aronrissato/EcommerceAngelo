@@ -1,0 +1,21 @@
+﻿--INSTRULÇÕES DO ENTITY FRAMEWORK CORE --
+
+1 - Instalação do EntityFramework Core
+  - Install-Package Microsoft.EntityFrameworkCore.SqlServer -Version: 2.1.11
+
+2 - Criar as classes de modelo
+  - 
+
+3 - Criar a classe de contexto
+  - Herdar DbContex
+  - Criar o construtor
+  - Criar o DbSet de cada modelo
+
+4 - Configurar as opções e ID (injeção de dependencia) para o contexto
+
+5 - Criar a string de conexão no arquivo appsettings.json
+
+6 - Não é necessario habilitar a migração
+
+7 - Adicionar uma migração e atualizar a base
+  - Add-Migration NomeMigracao; Update-Database -verbose
