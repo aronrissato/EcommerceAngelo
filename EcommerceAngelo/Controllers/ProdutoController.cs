@@ -10,11 +10,11 @@ namespace EcommerceAngelo.Controllers
     public class ProdutoController : Controller
     {
         //Métodos dentro de um controller são chamados de actions
-        private readonly Context _context;
+        private readonly ProdutoDAO _produtoDAO;
 
-        public ProdutoController(Context context)
+        public ProdutoController(ProdutoDAO produtoDAO)
         {
-            _context = context;
+            _produtoDAO = produtoDAO;
         }
 
 
@@ -31,6 +31,9 @@ namespace EcommerceAngelo.Controllers
         [HttpPost]
         public IActionResult Cadastrar(string txtNome, string txtDescricao, string txtPreco, string txtQuantidade)
         {
+            //Produto produto = new Produto();
+            //produto.Nome = txtNome...;
+
             Produto produto = new Produto
             {
                 Nome = txtNome,
@@ -39,10 +42,11 @@ namespace EcommerceAngelo.Controllers
                 Quantidade = Convert.ToInt32(txtQuantidade)
             };
 
-            _context.Produtos.Add(produto);
-            _context.SaveChanges();
+            _produtoDAO.CadastrarProduto(produto);
+
 
             return View();
+            //return RedirectToAction("Index");
         }
 
     }

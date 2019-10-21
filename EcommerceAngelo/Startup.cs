@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EcommerceAngelo.Controllers;
 using EcommerceAngelo.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -29,6 +30,10 @@ namespace EcommerceAngelo
             services.AddDbContext<Context>(
                 options => options.UseSqlServer(Configuration.GetConnectionString("EcommerceConnection")));
             services.AddMvc();
+
+
+            services.AddScoped<ProdutoDAO>();
+
 
             services.Configure<CookiePolicyOptions>(options =>
             {
