@@ -1,0 +1,31 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Cadastrar</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <h1>Cadastrar produto</h1>
+
+    <form asp-action="Cadastrar" method="post">
+        <label>Nome: </label>
+        <input type="text" name="txtNome" /><br />
+        <label>Descricao: </label>
+        <input type="text" name="txtDescricao" /><br />
+        <label>Preço: </label>
+        <input type="text" name="txtPreco" /><br />
+        <label>Quantidade: </label>
+        <input type="number" name="txtQuantidade" /><br />
+
+        <input type="submit" value="Cadastrar" />
+    </form>
+
+</body>
+</html>
