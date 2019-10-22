@@ -20,6 +20,8 @@ namespace EcommerceAngelo.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Produtos = _produtoDAO.ListarProdutos();
+            ViewBag.DataHora = DateTime.Now;
             return View();
         }
 

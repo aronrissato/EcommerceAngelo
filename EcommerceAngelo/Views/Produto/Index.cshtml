@@ -1,0 +1,50 @@
+﻿
+@{
+    List<Produto> produtos = ViewBag.Produtos;
+    DateTime dataHora = ViewBag.DataHora;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <title>Gerenciar Produtos</title>
+</head>
+<body>
+    <div class="container">
+        <h2 style="margin-top: 10px">Gerenciamento de Produto</h2>
+        <br />
+        <a asp-action="Cadastrar">Cadastrar novo produto</a><br />
+        <br />
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Preço</th>
+                    <th>Quantidade</th>
+                    <th>Criado em</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Produto produto in produtos)
+                {
+                    <tr>
+                        <td>@produto.Nome</td>
+                        <td>@produto.Descricao</td>
+                        <td>@produto.Preco.ToString("C2")</td>
+                        <td>@produto.Quantidade</td>
+                        <td>@produto.CriadoEm</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <br /><br /><b>Dados atualizados: </b> @dataHora
+    </div>
+</body>
+</html>
+

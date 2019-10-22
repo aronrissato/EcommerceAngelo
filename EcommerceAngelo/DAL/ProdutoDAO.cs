@@ -21,6 +21,11 @@ namespace EcommerceAngelo.Controllers
             _context.SaveChanges();
         }
 
+        public List<Produto> ListarProdutos()
+        {
+            return _context.Produtos.ToList();
+        }
+
 
     }
 }

@@ -65,7 +65,7 @@ namespace EcommerceAngelo
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Produto}/{action=Cadastrar}/{id?}");
+                    template: "{controller=Produto}/{action=Index}/{id?}");
             });
         }
     }
