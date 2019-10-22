@@ -46,10 +46,37 @@ namespace EcommerceAngelo.Controllers
 
             _produtoDAO.CadastrarProduto(produto);
 
-
-            return View();
-            //return RedirectToAction("Index");
+            //return View();
+            return RedirectToAction("Index");
         }
 
+        public IActionResult RemoverProduto(int id)
+        {
+
+            _produtoDAO.RemoverProduto(id);
+
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult EditarProduto(int id)
+        {
+            ViewBag.Produto = _produtoDAO.BuscarProdutoPorId(id);
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult EditarProduto(string txtNome, string txtDescricao, string txtPreco, string txtQuantidade, string txtId)
+        {
+            Produto p = _produtoDAO.BuscarProdutoPorId(Convert.ToInt32(txtId));
+
+            p.Nome = txtNome;
+            p.Descricao = txtDescricao;
+            p.Preco = Convert.ToInt32(txtPreco);
+            p.Quantidade = Convert.ToInt32(txtQuantidade);
+
+            _produtoDAO.EditarProduto(p);
+
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -28,17 +28,23 @@
                     <th>Preço</th>
                     <th>Quantidade</th>
                     <th>Criado em</th>
+                    <th>Exluir</th>
+                    <th>Editar</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (Produto produto in produtos)
                 {
                     <tr>
-                        <td>@produto.Nome</td>
-                        <td>@produto.Descricao</td>
-                        <td>@produto.Preco.ToString("C2")</td>
-                        <td>@produto.Quantidade</td>
-                        <td>@produto.CriadoEm</td>
+                        <td style="padding-right:10px">@produto.Nome</td>
+                        <td style="padding-right:10px">@produto.Descricao</td>
+                        <td style="padding-right:10px">@produto.Preco.ToString("C2")</td>
+                        <td style="padding-right:10px">@produto.Quantidade</td>
+                        <td style="padding-right:10px">@produto.CriadoEm</td>
+                        <td style="padding-right:10px">
+                            <a asp-action="RemoverProduto" asp-route-id="@produto.ProdutoId">Remover</a>
+                            <a asp-action="EditarProduto" asp-route-id="@produto.ProdutoId">Editar</a>
+                        </td>
                     </tr>
                 }
             </tbody>

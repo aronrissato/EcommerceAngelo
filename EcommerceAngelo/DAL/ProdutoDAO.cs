@@ -14,7 +14,7 @@ namespace EcommerceAngelo.Controllers
         {
             _context = context;
         }
-        
+
         public void CadastrarProduto(Produto produto)
         {
             _context.Produtos.Add(produto);
@@ -26,6 +26,21 @@ namespace EcommerceAngelo.Controllers
             return _context.Produtos.ToList();
         }
 
+        public Produto BuscarProdutoPorId(int id)
+        {
+            return _context.Produtos.Find(id);
+        }
 
+        public void RemoverProduto(int id)
+        {
+            _context.Produtos.Remove(BuscarProdutoPorId(id));
+            _context.SaveChanges();
+        }
+
+        public void EditarProduto(Produto produto)
+        {
+            _context.Produtos.Update(produto);
+            _context.SaveChanges();
+        }
     }
 }
