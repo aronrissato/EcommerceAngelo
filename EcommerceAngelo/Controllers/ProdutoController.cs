@@ -20,33 +20,20 @@ namespace EcommerceAngelo.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.Produtos = _produtoDAO.ListarProdutos();
             ViewBag.DataHora = DateTime.Now;
-            return View();
+            return View(_produtoDAO.ListarProdutos());
         }
 
+        [HttpGet]
         public IActionResult Cadastrar()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Cadastrar(string txtNome, string txtDescricao, string txtPreco, string txtQuantidade)
+        public IActionResult Cadastrar(Produto p)
         {
-            //Produto produto = new Produto();
-            //produto.Nome = txtNome...;
-
-            Produto produto = new Produto
-            {
-                Nome = txtNome,
-                Descricao = txtDescricao,
-                Preco = Convert.ToInt32(txtPreco),
-                Quantidade = Convert.ToInt32(txtQuantidade)
-            };
-
-            _produtoDAO.CadastrarProduto(produto);
-
-            //return View();
+            _produtoDAO.CadastrarProduto(p);
             return RedirectToAction("Index");
         }
 
@@ -54,28 +41,19 @@ namespace EcommerceAngelo.Controllers
         {
 
             _produtoDAO.RemoverProduto(id);
-
             return RedirectToAction("Index");
         }
 
         public IActionResult EditarProduto(int id)
         {
-            ViewBag.Produto = _produtoDAO.BuscarProdutoPorId(id);
-            return View();
+            return View(_produtoDAO.BuscarProdutoPorId(id));
+
         }
 
         [HttpPost]
-        public IActionResult EditarProduto(string txtNome, string txtDescricao, string txtPreco, string txtQuantidade, string txtId)
+        public IActionResult EditarProduto(Produto p)
         {
-            Produto p = _produtoDAO.BuscarProdutoPorId(Convert.ToInt32(txtId));
-
-            p.Nome = txtNome;
-            p.Descricao = txtDescricao;
-            p.Preco = Convert.ToInt32(txtPreco);
-            p.Quantidade = Convert.ToInt32(txtQuantidade);
-
             _produtoDAO.EditarProduto(p);
-
             return RedirectToAction("Index");
         }
     }
