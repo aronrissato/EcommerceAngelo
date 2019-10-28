@@ -26,15 +26,6 @@ namespace EcommerceAngelo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //Configurara a ID do banco de dados/contexto
-            services.AddDbContext<Context>(
-                options => options.UseSqlServer(Configuration.GetConnectionString("EcommerceConnection")));
-            services.AddMvc();
-
-
-            services.AddScoped<ProdutoDAO>();
-
-
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -42,6 +33,11 @@ namespace EcommerceAngelo
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddScoped<ProdutoDAO>();
+
+            //Configurara a ID do banco de dados/contexto
+            services.AddDbContext<Context>
+                (options => options.UseSqlServer(Configuration.GetConnectionString("EcommerceConnection")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

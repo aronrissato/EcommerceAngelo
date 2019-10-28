@@ -1,56 +1,48 @@
-﻿
+﻿@model List<Produto>
 @{
-    List<Produto> produtos = ViewBag.Produtos;
     DateTime dataHora = ViewBag.DataHora;
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-          crossorigin="anonymous">
-    <title>Gerenciar Produtos</title>
-</head>
-<body>
-    <div class="container">
-        <h2 style="margin-top: 10px">Gerenciamento de Produto</h2>
-        <br />
-        <a asp-action="Cadastrar">Cadastrar novo produto</a><br />
-        <br />
-        <table>
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Descrição</th>
-                    <th>Preço</th>
-                    <th>Quantidade</th>
-                    <th>Criado em</th>
-                    <th>Exluir</th>
-                    <th>Editar</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (Produto produto in produtos)
-                {
-                    <tr>
-                        <td style="padding-right:10px">@produto.Nome</td>
-                        <td style="padding-right:10px">@produto.Descricao</td>
-                        <td style="padding-right:10px">@produto.Preco.ToString("C2")</td>
-                        <td style="padding-right:10px">@produto.Quantidade</td>
-                        <td style="padding-right:10px">@produto.CriadoEm</td>
-                        <td style="padding-right:10px">
-                            <a asp-action="RemoverProduto" asp-route-id="@produto.ProdutoId">Remover</a>
-                            <a asp-action="EditarProduto" asp-route-id="@produto.ProdutoId">Editar</a>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-        <br /><br /><b>Dados atualizados: </b> @dataHora
-    </div>
-</body>
-</html>
-
+<h2>Gerenciamento dos Produtos</h2>
+<a asp-action="Cadastrar" class="btn btn-info">Cadastrar Produto</a>
+<table class="table table-hover table-striped"
+       style="margin-top:15px;margin-bottom:15px">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Preço</th>
+            <th>Quantidade</th>
+            <th>Criado em</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Produto item in Model)
+        {
+            <tr>
+                <td>@item.Nome</td>
+                <td>@item.Descricao</td>
+                <td>@item.Preco.ToString("C2")</td>
+                <td>@item.Quantidade</td>
+                <td>@item.CriadoEm</td>
+                <td>
+                    <a asp-action="Remover"
+                       asp-route-id="@item.ProdutoId"
+                       class="btn btn-primary">
+                        Remover
+                    </a>
+                </td>
+                <td>
+                    <a asp-action="Alterar"
+                       asp-route-id="@item.ProdutoId"
+                       class="btn btn-danger">
+                        Alterar
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<b>Dados atualizados em: </b> @dataHora

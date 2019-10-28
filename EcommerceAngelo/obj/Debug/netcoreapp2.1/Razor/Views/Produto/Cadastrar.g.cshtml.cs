@@ -67,7 +67,7 @@ using EcommerceAngelo.Models;
             WriteLiteral("\r\n<!DOCTYPE html>\r\n\r\n<html>\r\n");
             EndContext();
             BeginContext(58, 329, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5bd848f25e184b2dbcf100eeeb22930e", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3a6e6537f07544d8ab72bbd15ad8c210", async() => {
                 BeginContext(64, 316, true);
                 WriteLiteral(@"
     <meta name=""viewport"" content=""width=device-width"" />
@@ -91,12 +91,12 @@ using EcommerceAngelo.Models;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(389, 524, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f3e4d1d8a9e4464dba4555574e86a07b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9b0745dafb184582ba82f153115b5164", async() => {
                 BeginContext(395, 40, true);
                 WriteLiteral("\r\n    <h1>Cadastrar Produto</h1>\r\n\r\n    ");
                 EndContext();
                 BeginContext(435, 467, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b194a6819db34cc6875fc6081dd97ede", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0f2d0aac494041b59387b2f3a4a37f18", async() => {
                     BeginContext(478, 417, true);
                     WriteLiteral(@"
         <label>Nome: </label>

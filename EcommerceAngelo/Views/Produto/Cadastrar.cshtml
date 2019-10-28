@@ -1,31 +1,30 @@
 ﻿
-@{
-    Layout = null;
-}
+@model Produto
 
-<!DOCTYPE html>
+<form asp-action="Cadastrar" method="post">
+    <fieldset>
+        <legend>Cadastrar Produto</legend>
+        <div class="form-group" id="Nome">
+            <label>Nome:</label>
+            <input type="text" class="form-control" asp-for="Nome" />
+        </div>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Cadastrar Produto</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
-<body>
-    <h1>Cadastrar Produto</h1>
+        <div class="form-group" id="Descricao">
+            <label>Descrição:</label>
+            <input type="text" class="form-control" asp-for="Descricao" />
+        </div>
 
-    <form asp-action="Cadastrar" method="post">
-        <label>Nome: </label>
-        <input type="text" name="txtNome" /><br />
-        <label>Descricao: </label>
-        <input type="text" name="txtDescricao" /><br />
-        <label>Preço: </label>
-        <input type="text" name="txtPreco" /><br />
-        <label>Quantidade: </label>
-        <input type="number" name="txtQuantidade" /><br />
+        <div class="form-group" id="Preco">
+            <label>Preço:</label>
+            <input type="text" class="form-control" asp-for="Preco" />
+        </div>
 
-        <input type="submit" value="Cadastrar" />
-    </form>
+        <div class="form-group" id="Quantidade">
+            <label>Quantidade:</label>
+            <input type="text" class="form-control" name="txtQuantidade" asp-for="Quantidade" />
 
-</body>
-</html>
+        </div>
+
+        <input type="submit" class="btn btn-success" value="Cadastrar" />
+    </fieldset>
+</form>
