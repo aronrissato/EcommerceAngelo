@@ -18,4 +18,5 @@
 6 - Não é necessario habilitar a migração
 
 7 - Adicionar uma migração e atualizar a base
-  - Add-Migration NomeMigracao; Update-Database -verbose
+  - Add-Migration NomeMigracao -Project: Repository
+  - Update-Database -verbose -Project: Repository

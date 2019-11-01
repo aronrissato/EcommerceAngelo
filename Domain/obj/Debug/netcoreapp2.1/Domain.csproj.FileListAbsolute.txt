@@ -6,3 +6,4 @@ C:\Users\aron.rissato\source\repos\EcommerceAngelo\Domain\obj\Debug\netcoreapp2.
 C:\Users\aron.rissato\source\repos\EcommerceAngelo\Domain\obj\Debug\netcoreapp2.1\Domain.AssemblyInfo.cs
 C:\Users\aron.rissato\source\repos\EcommerceAngelo\Domain\obj\Debug\netcoreapp2.1\Domain.dll
 C:\Users\aron.rissato\source\repos\EcommerceAngelo\Domain\obj\Debug\netcoreapp2.1\Domain.pdb
+C:\Users\aron.rissato\source\repos\EcommerceAngelo\Domain\obj\Debug\netcoreapp2.1\Domain.csprojAssemblyReference.cache

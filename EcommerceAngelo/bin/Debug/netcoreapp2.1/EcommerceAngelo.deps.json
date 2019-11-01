@@ -27,7 +27,6 @@
           "Domain": "1.0.0",
           "Microsoft.AspNetCore.App": "2.1.1",
           "Microsoft.AspNetCore.Razor.Design": "2.1.2",
-          "Microsoft.EntityFrameworkCore.SqlServer": "2.1.11",
           "Microsoft.NETCore.App": "2.1.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.1.9",
           "Repository": "1.0.0"
@@ -651,6 +650,10 @@
         }
       },
       "Repository/1.0.0": {
+        "dependencies": {
+          "Domain": "1.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "2.1.11"
+        },
         "runtime": {
           "Repository.dll": {}
         },

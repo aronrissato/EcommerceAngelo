@@ -1,11 +1,12 @@
 ﻿using Domain;
+using Repository;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EcommerceAngelo.Models
+namespace Repository
 {
     public class Context : DbContext
     {
