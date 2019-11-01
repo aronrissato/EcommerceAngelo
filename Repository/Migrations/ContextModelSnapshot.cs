@@ -3,16 +3,15 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Repository;
 
-namespace EcommerceAngelo.Migrations
+namespace Repository.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20191018233054_PrimeiraMigration")]
-    partial class PrimeiraMigration
+    partial class ContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -20,7 +19,7 @@ namespace EcommerceAngelo.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("EcommerceAngelo.Models.Produto", b =>
+            modelBuilder.Entity("Domain.Produto", b =>
                 {
                     b.Property<int>("ProdutoId")
                         .ValueGeneratedOnAdd()
@@ -28,11 +27,15 @@ namespace EcommerceAngelo.Migrations
 
                     b.Property<DateTime>("CriadoEm");
 
-                    b.Property<string>("Descricao");
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasMaxLength(50);
 
-                    b.Property<string>("Nome");
+                    b.Property<string>("Nome")
+                        .IsRequired();
 
-                    b.Property<double>("Preco");
+                    b.Property<double?>("Preco")
+                        .IsRequired();
 
                     b.Property<int>("Quantidade");
 

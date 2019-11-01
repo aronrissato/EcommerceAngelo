@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace EcommerceAngelo.Migrations
+namespace Repository.Migrations
 {
-    public partial class PrimeiraMigration : Migration
+    public partial class HabilitarEmNovoProjetoRepository : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,8 +14,8 @@ namespace EcommerceAngelo.Migrations
                 {
                     ProdutoId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Nome = table.Column<string>(nullable: true),
-                    Descricao = table.Column<string>(nullable: true),
+                    Nome = table.Column<string>(nullable: false),
+                    Descricao = table.Column<string>(maxLength: 50, nullable: false),
                     Preco = table.Column<double>(nullable: false),
                     Quantidade = table.Column<int>(nullable: false),
                     CriadoEm = table.Column<DateTime>(nullable: false)
