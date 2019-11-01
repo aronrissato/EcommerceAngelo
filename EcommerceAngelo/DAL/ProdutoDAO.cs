@@ -1,4 +1,5 @@
-﻿using EcommerceAngelo.Models;
+﻿using Domain;
+using EcommerceAngelo.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
