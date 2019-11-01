@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace EcommerceAngelo.Models
-{
+{      //Annottation ASP.NET Core (Validações)
     [Table("Produtos")]
 
     public class Produto
@@ -19,10 +19,22 @@ namespace EcommerceAngelo.Models
         [Key]
         public int ProdutoId { get; set; }
 
+        [Display(Name = "Nome do produto:")]
+        [Required(ErrorMessage ="Campo obrigatório!")]
         public string Nome { get; set; }
+
+        [Required(ErrorMessage = "Campo obrigatório!")]
+        [MinLength(5,ErrorMessage = "No mínimo 5 caracteres!")]
+        [MaxLength(50, ErrorMessage = "No máximo 50 caracteres!")]
         public string Descricao { get; set; }
-        public double Preco { get; set; }
+
+        [Required(ErrorMessage = "Campo obrigatório!")]
+        public double? Preco { get; set; }
+
+        [Required(ErrorMessage = "Campo obrigatório!")]
+        [Range(1, 1000, ErrorMessage ="Quantidade apenas entre 1 e 1000!")]
         public int Quantidade { get; set; }
+
         public DateTime CriadoEm { get; set; }
     }
 }

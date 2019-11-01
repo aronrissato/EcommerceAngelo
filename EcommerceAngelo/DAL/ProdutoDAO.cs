@@ -15,10 +15,20 @@ namespace EcommerceAngelo.Controllers
             _context = context;
         }
 
-        public void CadastrarProduto(Produto produto)
+        public bool CadastrarProduto(Produto produto)
         {
-            _context.Produtos.Add(produto);
-            _context.SaveChanges();
+            if (BuscarProdutoPorNome(produto) == null)
+            {
+                _context.Produtos.Add(produto);
+                _context.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+
+        public Produto BuscarProdutoPorNome(Produto produto)
+        {
+            return _context.Produtos.FirstOrDefault(x => x.Nome.Equals(produto.Nome));
         }
 
         public List<Produto> ListarProdutos()

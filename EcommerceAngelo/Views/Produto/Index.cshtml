@@ -4,7 +4,7 @@
 }
 
 <h2>Gerenciamento dos Produtos</h2>
-<a asp-action="Cadastrar" class="btn btn-info">Cadastrar Produto</a>
+<a asp-controller="Produto" asp-action="Cadastrar" class="btn btn-info">Cadastrar Produto</a>
 <table class="table table-hover table-striped"
        style="margin-top:15px;margin-bottom:15px">
     <thead>
@@ -24,7 +24,7 @@
             <tr>
                 <td>@item.Nome</td>
                 <td>@item.Descricao</td>
-                <td>@item.Preco.ToString("C2")</td>
+                <td>@item.Preco.Value.ToString("C2")</td>
                 <td>@item.Quantidade</td>
                 <td>@item.CriadoEm</td>
                 <td>

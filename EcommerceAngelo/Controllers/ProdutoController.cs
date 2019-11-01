@@ -33,8 +33,15 @@ namespace EcommerceAngelo.Controllers
         [HttpPost]
         public IActionResult Cadastrar(Produto p)
         {
-            _produtoDAO.CadastrarProduto(p);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                if (_produtoDAO.CadastrarProduto(p))
+                {
+                    return RedirectToAction("Index");
+                }
+                ModelState.AddModelError("", "Esse produto já existe!");
+            }
+            return View(p);
         }
 
         public IActionResult RemoverProduto(int id)
@@ -47,7 +54,6 @@ namespace EcommerceAngelo.Controllers
         public IActionResult EditarProduto(int id)
         {
             return View(_produtoDAO.BuscarProdutoPorId(id));
-
         }
 
         [HttpPost]

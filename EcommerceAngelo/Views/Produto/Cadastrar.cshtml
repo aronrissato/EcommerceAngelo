@@ -4,24 +4,29 @@
 <form asp-action="Cadastrar" method="post">
     <fieldset>
         <legend>Cadastrar Produto</legend>
+        <div asp-validation-summary="ModelOnly" class="text-capitalize"></div>
         <div class="form-group" id="Nome">
-            <label>Nome:</label>
+            <label asp-for="Nome"></label>
             <input type="text" class="form-control" asp-for="Nome" />
+            <span asp-validation-for="Nome" class="text-capitalize"></span>
         </div>
 
         <div class="form-group" id="Descricao">
             <label>Descrição:</label>
             <input type="text" class="form-control" asp-for="Descricao" />
+            <span asp-validation-for="Descricao" class="text-capitalize"></span>
         </div>
 
         <div class="form-group" id="Preco">
             <label>Preço:</label>
             <input type="text" class="form-control" asp-for="Preco" />
+            <span asp-validation-for="Preco" class="text-capitalize"></span>
         </div>
 
         <div class="form-group" id="Quantidade">
             <label>Quantidade:</label>
-            <input type="text" class="form-control" name="txtQuantidade" asp-for="Quantidade" />
+            <input type="text" class="form-control" asp-for="Quantidade" />
+            <span asp-validation-for="Quantidade" class="text-capitalize"></span>
         </div>
 
         <input type="submit" class="btn btn-success" value="Cadastrar" />
