@@ -30,3 +30,5 @@ C:\Users\aron.rissato\source\repos\EcommerceAngelo\EcommerceAngelo\bin\Debug\net
 C:\Users\aron.rissato\source\repos\EcommerceAngelo\EcommerceAngelo\bin\Debug\netcoreapp2.1\Repository.dll
 C:\Users\aron.rissato\source\repos\EcommerceAngelo\EcommerceAngelo\bin\Debug\netcoreapp2.1\Domain.pdb
 C:\Users\aron.rissato\source\repos\EcommerceAngelo\EcommerceAngelo\bin\Debug\netcoreapp2.1\Repository.pdb
+C:\Users\aron.rissato\source\repos\EcommerceAngelo\EcommerceAngelo\obj\Debug\netcoreapp2.1\Razor\Views\Categoria\Create.g.cshtml.cs
+C:\Users\aron.rissato\source\repos\EcommerceAngelo\EcommerceAngelo\obj\Debug\netcoreapp2.1\Razor\Views\Categoria\Index.g.cshtml.cs

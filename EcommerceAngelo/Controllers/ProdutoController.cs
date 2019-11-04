@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Domain;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Repository;
 
 namespace EcommerceAngelo.Controllers
@@ -12,17 +13,19 @@ namespace EcommerceAngelo.Controllers
     {
         //Métodos dentro de um controller são chamados de actions
         private readonly ProdutoDAO _produtoDAO;
+        private readonly CategoriaDAO _categoriaDAO;
 
-        public ProdutoController(ProdutoDAO produtoDAO)
+        public ProdutoController(ProdutoDAO produtoDAO, CategoriaDAO categoriaDAO)
         {
             _produtoDAO = produtoDAO;
+            _categoriaDAO = categoriaDAO;
         }
 
 
         public IActionResult Index()
         {
             ViewBag.DataHora = DateTime.Now;
-            return View(_produtoDAO.ListarProdutos());
+            return View(_produtoDAO.ListarTodos());
         }
 
         [HttpGet]
@@ -32,11 +35,14 @@ namespace EcommerceAngelo.Controllers
         }
 
         [HttpPost]
-        public IActionResult Cadastrar(Produto p)
+        public IActionResult Cadastrar(Produto p, int drpCategorias)
         {
+            ViewBag.Categorias = new SelectList(_categoriaDAO.ListarTodos(), "CategoriaId", "Nome");
+
             if (ModelState.IsValid)
             {
-                if (_produtoDAO.CadastrarProduto(p))
+                p.Categoria = _categoriaDAO.BuscarPorId(drpCategorias);
+                if (_produtoDAO.Cadastrar(p))
                 {
                     return RedirectToAction("Index");
                 }
@@ -47,14 +53,13 @@ namespace EcommerceAngelo.Controllers
 
         public IActionResult RemoverProduto(int id)
         {
-
             _produtoDAO.RemoverProduto(id);
             return RedirectToAction("Index");
         }
 
         public IActionResult EditarProduto(int id)
         {
-            return View(_produtoDAO.BuscarProdutoPorId(id));
+            return View(_produtoDAO.BuscarPorId(id));
         }
 
         [HttpPost]

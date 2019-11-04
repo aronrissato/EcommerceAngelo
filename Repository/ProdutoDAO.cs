@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Repository
 {
-    public class ProdutoDAO
+    public class ProdutoDAO : IRepository<Produto>
     {
         private readonly Context _context;
 
@@ -16,7 +16,7 @@ namespace Repository
             _context = context;
         }
 
-        public bool CadastrarProduto(Produto produto)
+        public bool Cadastrar(Produto produto)
         {
             if (BuscarProdutoPorNome(produto) == null)
             {
@@ -32,19 +32,19 @@ namespace Repository
             return _context.Produtos.FirstOrDefault(x => x.Nome.Equals(produto.Nome));
         }
 
-        public List<Produto> ListarProdutos()
+        public List<Produto> ListarTodos()
         {
             return _context.Produtos.ToList();
         }
 
-        public Produto BuscarProdutoPorId(int id)
+        public Produto BuscarPorId(int id)
         {
             return _context.Produtos.Find(id);
         }
 
         public void RemoverProduto(int id)
         {
-            _context.Produtos.Remove(BuscarProdutoPorId(id));
+            _context.Produtos.Remove(BuscarPorId(id));
             _context.SaveChanges();
         }
 
