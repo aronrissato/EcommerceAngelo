@@ -1,6 +1,7 @@
 ﻿using Domain;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Repository
@@ -14,19 +15,30 @@ namespace Repository
             _context = context;
         }
 
-        public Usuario BuscarPorId(int id)
+        public bool Cadastrar(Usuario usuario)
         {
-            throw new NotImplementedException();
+            if (BuscarPorEmail(usuario) == null)
+            {
+                _context.Add(usuario);
+                _context.SaveChanges();
+                return true;
+            }
+            return false;
         }
 
-        public bool Cadastrar(Usuario objeto)
+        public Usuario BuscarPorEmail(Usuario usuario)
         {
-            throw new NotImplementedException();
+            return _context.Usuarios.FirstOrDefault(x => x.Email.Equals(usuario.Email));
+        }
+
+        public Usuario BuscarPorId(int id)
+        {
+            return _context.Usuarios.Find(id);
         }
 
         public List<Usuario> ListarTodos()
         {
-            throw new NotImplementedException();
+            return _context.Usuarios.ToList();
         }
     }
 }

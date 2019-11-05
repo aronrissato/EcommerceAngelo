@@ -22,7 +22,7 @@ namespace Domain
         public int Cep { get; set; }
 
         [Display(Name = "Rua:")]
-        public int Logradouro { get; set; }
+        public string Logradouro { get; set; }
 
         [Display(Name = "Bairro:")]
         public string Bairro { get; set; }

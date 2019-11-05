@@ -29,6 +29,9 @@ namespace EcommerceAngelo
             });
 
             services.AddScoped<ProdutoDAO>();
+            services.AddScoped<CategoriaDAO>();
+            services.AddScoped<EnderecoDAO>();
+            services.AddScoped<UsuarioDAO>();
 
             //Configurara a ID do banco de dados/contexto
             services.AddDbContext<Context>
