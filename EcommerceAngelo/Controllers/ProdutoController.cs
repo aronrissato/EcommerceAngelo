@@ -31,6 +31,7 @@ namespace EcommerceAngelo.Controllers
         [HttpGet]
         public IActionResult Cadastrar()
         {
+            ViewBag.Categorias = new SelectList(_categoriaDAO.ListarTodos(),"CategoriaId", "Nome");
             return View();
         }
 
