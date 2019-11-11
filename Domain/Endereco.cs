@@ -19,7 +19,7 @@ namespace Domain
         public int EnderecoId { get; set; }
 
         [Display(Name = "CEP:")]
-        public int Cep { get; set; }
+        public string Cep { get; set; }
 
         [Display(Name = "Rua:")]
         public string Logradouro { get; set; }
