@@ -6,44 +6,74 @@
 <h2>Gerenciamento dos Produtos</h2>
 <a asp-controller="Produto" asp-action="Cadastrar" class="btn btn-info">Cadastrar Produto</a>
 <a asp-controller="Categoria" asp-action="Cadastrar" class="btn btn-info">Cadastrar Categoria</a>
-<table class="table table-hover table-striped"
-       style="margin-top:15px;margin-bottom:15px">
-    <thead>
-        <tr>
-            <th>Nome</th>
-            <th>Descrição</th>
-            <th>Preço</th>
-            <th>Quantidade</th>
-            <th>Criado em</th>
-            <th></th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
+
+
+
+<div class="container">
+<hr />
+    <div class="row">
         @foreach (Produto item in Model)
         {
-            <tr>
-                <td>@item.Nome</td>
-                <td>@item.Descricao</td>
-                <td>@item.Preco.Value.ToString("C2")</td>
-                <td>@item.Quantidade</td>
-                <td>@item.CriadoEm</td>
-                <td>
-                    <a asp-action="Remover"
-                       asp-route-id="@item.ProdutoId"
-                       class="btn btn-primary">
-                        Remover
-                    </a>
-                </td>
-                <td>
-                    <a asp-action="EditarProduto"
-                       asp-route-id="@item.ProdutoId"
-                       class="btn btn-danger">
-                        Alterar
-                    </a>
-                </td>
-            </tr>
+
+            <div class="col-sm-3">
+                <div class="col-sm-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src="~/ecommerceimagens/@item.Imagem" class="card-img-top" alt="@item.Descricao" style="width:200px;height:100px"/>
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Nome</h5>
+                            <p class="card-text">@item.Descricao</p>
+                            <a href="#" class="btn btn-primary">Veja mais</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         }
-    </tbody>
-</table>
-<b>Dados atualizados em: </b> @dataHora
+    </div>
+
+
+    @*<table class="table table-hover table-striped"
+               style="margin-top:15px;margin-bottom:15px">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Preço</th>
+                    <th>Quantidade</th>
+                    <th>Imagem</th>
+                    <th>Criado em</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Produto item in Model)
+                {
+                    <tr>
+                        <td>@item.Nome</td>
+                        <td>@item.Descricao</td>
+                        <td>@item.Preco.Value.ToString("C2")</td>
+                        <td>@item.Quantidade</td>
+                        <td>
+                            <img src="~/ecommerceimagens/@item.Imagem" alt="@item.Descricao" style="width:150px;height:120px"/>
+                        </td>
+                        <td>@item.CriadoEm</td>
+                        <td>
+                            <a asp-action="Remover"
+                               asp-route-id="@item.ProdutoId"
+                               class="btn btn-primary">
+                                Remover
+                            </a>
+                        </td>
+                        <td>
+                            <a asp-action="EditarProduto"
+                               asp-route-id="@item.ProdutoId"
+                               class="btn btn-danger">
+                                Alterar
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>*@
+    <b>Dados atualizados em: </b> @dataHora
